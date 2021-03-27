@@ -1,0 +1,15 @@
+{
+  "name": "phongmc95",
+  "version": "1.0.0",
+  "description": "abc",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Hoang Phong",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1"
+  }
+}
