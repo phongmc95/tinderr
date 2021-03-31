@@ -12,6 +12,10 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+app.use(express.static('css'))
+app.use(express.static('js'))
+app.use(express.static('images'))
+
 app.get("/", function (request, response) {
     response.render("login");
 });
