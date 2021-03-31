@@ -12,6 +12,10 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+app.get("/", function (request, response) {
+    response.render("login");
+});
+
 app.get("/home", function (request, response) {
   response.render("home");
 });
