@@ -4,9 +4,7 @@
   "description": "tinder",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "node index.js",
-    "web": "node index.js"
+    "start": "node index.js"
   },
   "author": "Phong Hoang",
   "license": "ISC",
