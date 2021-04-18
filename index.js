@@ -45,10 +45,10 @@ const user = new mongoose.Schema({
 var userConnect = db.model("users", user);
 
 // Delete
-var dellete = userConnect.remove({_id:'607c54a252719908c02abbf5'}, function (err) {
-    if (err) throw err;
-    console.log('Đã xóa thành công!!!')
-})
+// var dellete = userConnect.remove({_id:'607c54a252719908c02abbf5'}, function (err) {
+//     if (err) throw err;
+//     console.log('Đã xóa thành công!!!')
+// })
 
 // //Update
 // var edit = userConnect.update({_id: '607c532a52719908c02abbf4'},{name: 'Nguyễn Chí Trung'},function (err) {
