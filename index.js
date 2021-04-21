@@ -34,24 +34,22 @@ const user = new mongoose.Schema({
     username: String,
     password: String,
     name: String,
+    age: String,
     email: String,
     phone: String,
-    avatar: {
-        data: Buffer,
-        contentType: String,
-    },
+    avatar: String,
 });
 
 var userConnect = db.model("users", user);
 
-// Delete
-// var dellete = userConnect.remove({_id:'607c54a252719908c02abbf5'}, function (err) {
+// // Delete
+// var dellete = userConnect.remove({}, function (err) {
 //     if (err) throw err;
 //     console.log('Đã xóa thành công!!!')
 // })
 
 // //Update
-// var edit = userConnect.update({_id: '607c532a52719908c02abbf4'},{name: 'Nguyễn Chí Trung'},function (err) {
+// var edit = userConnect.update({_id: '607c5f6e80023b0f14b8b3ce'},{name: 'Nguyễn Chí Trung'},function (err) {
 //   if (err) throw err;
 //   console.log('Đã sửa thành công!!!')
 // })
@@ -100,6 +98,7 @@ app.post("/insert", upload.single("avatar"), function (req, res) {
         username: req.body.username,
         password: req.body.password,
         name: req.body.name,
+        age: req.body.age,
         address: req.body.address,
         phone: req.body.phone,
         avatar: {
@@ -109,11 +108,9 @@ app.post("/insert", upload.single("avatar"), function (req, res) {
     }).save(function (err) {
         if (err) {
             res.render("add")
-            alert('Error!!')
             console.log(err);
         } else {
             res.render("add")
-            alert('OK')
             console.log('Đã lưu!!!')
         }
     });

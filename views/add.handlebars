@@ -38,10 +38,6 @@ body, html{
      padding-left: 400px;
 }
 
-.main{
- 	margin-top: 70px;
-}
-
 h1.title { 
 	font-size: 50px;
 	font-family: 'Passion One', cursive; 
@@ -120,7 +116,17 @@ input::-webkit-input-placeholder {
 						</div>
 
 						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Your Email</label>
+							<label for="age" class="cols-sm-2 control-label">Age</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="age" id="age"  placeholder="Enter your Age"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Email</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
@@ -170,8 +176,13 @@ input::-webkit-input-placeholder {
 						</div>
 
 						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Image</label>
-							<input name="avatar" type="file" >
+							<label for="avatar" class="cols-sm-2 control-label">Avatar</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-image    "></i></span>
+									<input type="text" class="form-control" name="avatar" id="avatar"  placeholder="Enter your Avatar"/>
+								</div>
+							</div>
 						</div>
 
 						<div class="form-group ">
