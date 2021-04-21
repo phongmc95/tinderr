@@ -95,10 +95,8 @@ app.post("/insert", upload.single("avatar"), function (req, res) {
         name: req.body.name,
         age: req.body.age,
         address: req.body.address,
-        avatar: {
-            data: req.file.filename,
-            contentType: "image/png",
-        },
+        avatar: req.body.avatar,
+           
     }).save(function (err) {
         if (err) {
             res.render("add")
