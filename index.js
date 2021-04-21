@@ -31,12 +31,9 @@ db.once("open", function () {
 });
 
 const user = new mongoose.Schema({
-    username: String,
-    password: String,
     name: String,
     age: String,
-    email: String,
-    phone: String,
+    address: String,
     avatar: String,
 });
 
@@ -95,12 +92,9 @@ app.get("/add", function (request, response) {
 /* POST home page. */
 app.post("/insert", upload.single("avatar"), function (req, res) {
     userConnect({
-        username: req.body.username,
-        password: req.body.password,
         name: req.body.name,
         age: req.body.age,
         address: req.body.address,
-        phone: req.body.phone,
         avatar: {
             data: req.file.filename,
             contentType: "image/png",
