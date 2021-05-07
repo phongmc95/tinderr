@@ -35,21 +35,11 @@ const user = new mongoose.Schema({
   age: String,
   address: String,
   avatar: String,
+  email: String,
+  phone: String,
 });
 
 var userConnect = db.model("users", user);
-
-// // Delete
-// var dellete = userConnect.remove({}, function (err) {
-//     if (err) throw err;
-//     console.log('Đã xóa thành công!!!')
-// })
-
-// //Update
-// var edit = userConnect.update({_id: '607c5f6e80023b0f14b8b3ce'},{name: 'Nguyễn Chí Trung'},function (err) {
-//   if (err) throw err;
-//   console.log('Đã sửa thành công!!!')
-// })
 
 app.get("/user", function (req, res, next) {
   userConnect.find({}, function (err, users) {
@@ -96,6 +86,8 @@ app.post("/insert", upload.single("avatar"), function (req, res) {
     age: req.body.age,
     address: req.body.address,
     avatar: req.body.avatar,
+    email: req.body.email,
+    phone: req.body.phone,
   }).save(function (err) {
     if (err) {
       res.render("add");
@@ -107,7 +99,7 @@ app.post("/insert", upload.single("avatar"), function (req, res) {
   });
 });
 
-app.patch("/update/:id", async (req, res) => {
+app.patch("/update", async (req, res) => {
   try {
     await userConnect.findByIdAndUpdate(req.params._id, req.body);
 
@@ -117,7 +109,7 @@ app.patch("/update/:id", async (req, res) => {
   }
 });
 
-app.delete("/delete/:id", async (req, res) => {
+app.delete("/delete", async (req, res) => {
   try {
     const use = await userConnect.findByIdAndDelete(req.params._id, req.body);
     if (!use) res.status(404).send("not foud");
