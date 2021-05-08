@@ -60,22 +60,6 @@ app.set("view engine", "handlebars");
 app.use(express.static("views"));
 
 app.get("/", function (request, response) {
-  response.render("login");
-});
-
-app.get("/home", function (request, response) {
-  response.render("home");
-});
-
-app.get("/profile", function (request, response) {
-  response.render("profile");
-});
-
-app.get("/update", function (request, response) {
-  response.render("update");
-});
-
-app.get("/add", function (request, response) {
   response.render("add");
 });
 
@@ -88,33 +72,32 @@ app.post("/add", upload.single("avatar"), function (req, res) {
     avatar: req.body.avatar,
     email: req.body.email,
     phone: req.body.phone,
-  }).save(function (err) {
-    if (err) {
-      res.render("add");
-      console.log(err);
-    } else {
-      res.render("add");
-      console.log("Đã lưu!!!");
-    }
-  });
+  }).save()
+  .then(data => {
+    console.log(data);
+    res.send(data);
+  })
+  .catch(err => console.log(err));
 });
 
 app.patch("/update", async (req, res) => {
-  try {
-    await userConnect.findByIdAndUpdate(req.params._id, req.body);
-
-    await userConnect.save();
-  } catch (error) {
-    res.status(500).send(error);
-  }
+  userConnect.findByIdAndUpdate(req.body._id, req.body)
+    .then(data => {
+      console.log(data);
+      res.send(data);
+    })
+    .catch(err => {
+      console.log('error', err);
+    });
 });
 
 app.delete("/delete", async (req, res) => {
-  try {
-    const use = await userConnect.findByIdAndDelete(req.params._id, req.body);
-    if (!use) res.status(404).send("not foud");
-    res.status(200).send();
-  } catch (error) {
-    res.status(500).send(error);
-  }
+  userConnect.findByIdAndRemove(req.body._id)
+  .then(data => {
+    console.log(data);
+    res.send(data);
+  })
+  .catch(err => {
+    console.log('error', err);
+  });
 });
