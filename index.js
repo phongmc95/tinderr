@@ -21,10 +21,6 @@ db.once('open', function () {
 
 app.use(bodyParser.json());
 
-app.get("/", function (request, response) {
-  response.render("add");
-});
-
 app.post('/add', async (req, res) => {
   const user = new Users({
     name: req.body.name,
@@ -65,7 +61,7 @@ app.post('/update', async (req, res) => {
     });
 });
 
-app.get('/users', (req, res) => {
+app.get('/', (req, res) => {
   Users.find({})
     .then(data => {
       console.log(data);

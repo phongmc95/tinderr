@@ -1,7 +1,7 @@
 {
   "name": "express",
   "version": "1.0.0",
-  "description": "tinder made by Hoang Phong",
+  "description": "Hoang Phong",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
