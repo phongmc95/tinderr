@@ -80,7 +80,7 @@ app.get("/add", function (request, response) {
 });
 
 /* POST home page. */
-app.post("/insert", upload.single("avatar"), function (req, res) {
+app.post("/add", upload.single("avatar"), function (req, res) {
   userConnect({
     name: req.body.name,
     age: req.body.age,
